@@ -14,7 +14,7 @@ After clone this git repository you should do following this step
     docker compose up --build
     ```
  * wait for docker application in docker start all stage already
- * after application started you can go to <ins>**[localhost:3000](localhost:3000)**</ins> for see this application
+ * after application started you can go to <ins>**[localhost:3000](http://localhost:3000)**</ins> for see this application
  
 enjoys ~
 
@@ -22,7 +22,7 @@ enjoys ~
 
 ### Backed Document :paperclip:
 
-You can access for test CRUD or read API Document at <ins>**[localhost:8000/docs](localhost:8000/docs)**</ins>
+You can access for test CRUD or read API Document at <ins>**[localhost:8000/docs](http://localhost:8000/docs)**</ins>
 
 ---
  
