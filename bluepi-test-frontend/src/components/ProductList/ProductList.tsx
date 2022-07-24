@@ -6,6 +6,7 @@ import { useEffect, useState } from "react"
 import ProductCard from "./ProductCard"
 
 
+
 function ProductList(): JSX.Element {
 
     const { amount, setAmount } = useGlobal()
@@ -50,6 +51,7 @@ function ProductList(): JSX.Element {
                 }
 
             </div>
+            
         </>
     )
 }

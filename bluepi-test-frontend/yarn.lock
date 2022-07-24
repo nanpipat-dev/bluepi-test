@@ -2659,6 +2659,16 @@ quick-lru@^5.1.1:
   resolved "https://registry.npmjs.org/quick-lru/-/quick-lru-5.1.1.tgz"
   integrity sha512-WuyALRjWPDGtt/wzJiadO5AXY+8hZ80hVpe6MyivgraREW751X3SbhRvG3eLKOYN+8VEvqLcf3wdnt44Z4S4SA==
 
+react-confirm-alert@^3.0.6:
+  version "3.0.6"
+  resolved "https://registry.yarnpkg.com/react-confirm-alert/-/react-confirm-alert-3.0.6.tgz#f7552ec839c1e189370cef02ffed3035e7ca2e22"
+  integrity sha512-rplP6Ed9ZSNd0KFV5BUzk4EPQ77BxsrayllBXGFuA8xPXc7sbBjgU5KUrNpl7aWFmP7mXRlVXfuy1IT5DbffYw==
+
+react-confirm-box@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/react-confirm-box/-/react-confirm-box-1.2.0.tgz#20d036257869d7cff4f96e6121ee3b6d5e5d8089"
+  integrity sha512-emltOsrQcJ9yFJIfgCEnAn8Srv9T6fJSjdAqf6zHXfO2k7AgM6xEO9dDZkybb8GWTm0Zq/nh2fAGJQN3jpkvKw==
+
 react-dom@18.2.0:
   version "18.2.0"
   resolved "https://registry.npmjs.org/react-dom/-/react-dom-18.2.0.tgz"
