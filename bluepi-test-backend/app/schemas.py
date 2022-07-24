@@ -16,6 +16,20 @@ class ProductsSchema(BaseModel):
     class Config:
         orm_mode = True
 
+class CreateProductsRequest(BaseModel):
+    title: Optional[str] = None
+    description: Optional[str] = None
+    price: Optional[int] = None
+    imgUrl: Optional[str] = None
+    total: Optional[int] = None
+
+class UpdateProductsRequest(BaseModel):
+    id: Optional[int] = None
+    title: Optional[str] = None
+    description: Optional[str] = None
+    price: Optional[int] = None
+    imgUrl: Optional[str] = None
+    total: Optional[int] = None
 
 class Request(GenericModel, Generic[T]):
     parameter: Optional[T] = Field(...)

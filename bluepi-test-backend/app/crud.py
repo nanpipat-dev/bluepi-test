@@ -1,7 +1,7 @@
 import os
 from sqlalchemy.orm import Session
 from app.model import Products, ProductsTest
-from app.schemas import ProductsSchema
+from app.schemas import ProductsSchema, CreateProductsRequest, UpdateProductsRequest
 
 def get_all_products(db: Session):
     if os.getenv("TEST"):
@@ -31,7 +31,7 @@ def init_create_product(db: Session):
     db.commit()
 
 
-def create_products(db: Session, product: ProductsSchema):
+def create_products(db: Session, product: CreateProductsRequest):
     if os.getenv("TEST"):
          _product = ProductsTest(title=product.title, description=product.description, price=product.price, imgUrl=product.imgUrl, total=product.total)
         
@@ -67,7 +67,7 @@ def update_stock_product(db: Session, product_id: int):
 
     return _product
 
-def update_product(db: Session, product: ProductsSchema):
+def update_product(db: Session, product: UpdateProductsRequest):
     if os.getenv("TEST"):
         _product = get_product_id(db=db, product_id=product.id)
     else:
