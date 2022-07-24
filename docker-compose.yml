@@ -1,0 +1,46 @@
+version: '3.8'
+services:
+  pg_bluepi:
+    container_name: pg_bluepi
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: bluepi_test_db
+    ports:
+      - "5431:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  app-backend:
+    build: ./bluepi-test-backend
+    depends_on:
+      pg_bluepi:
+        condition: service_healthy
+    command: uvicorn app.main:app --host 0.0.0.0 --forwarded-allow-ips="*"
+    ports:
+      - "8000:8000"
+      
+  unit-testing:
+    build: ./bluepi-test-backend
+    depends_on:
+      pg_bluepi:
+        condition: service_healthy
+    environment:
+      - TEST=True
+    command: pytest
+
+  app-frontend:
+    build:
+      context: "./bluepi-test-frontend"
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    depends_on:
+      pg_bluepi:
+        condition: service_healthy
+ 
