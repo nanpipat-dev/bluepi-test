@@ -24,15 +24,20 @@ services:
     command: uvicorn app.main:app --host 0.0.0.0 --forwarded-allow-ips="*"
     ports:
       - "8000:8000"
+    healthcheck:
+      test: ["CMD-SHELL", "TEST=True pytest"]
+    
       
-  unit-testing:
-    build: ./bluepi-test-backend
-    depends_on:
-      pg_bluepi:
-        condition: service_healthy
-    environment:
-      - TEST=True
-    command: pytest
+  # unit-testing:
+  #   build: ./bluepi-test-backend
+  #   depends_on:
+  #     pg_bluepi:
+  #       condition: service_healthy
+  #   environment:
+  #     - TEST=True
+  #   command: pytest
+  #   healthcheck:
+  #     test: ["CMD-SHELL", "pytest"]
 
   app-frontend:
     build:
@@ -42,5 +47,7 @@ services:
       - "3000:3000"
     depends_on:
       pg_bluepi:
+        condition: service_healthy
+      app-backend:
         condition: service_healthy
  
