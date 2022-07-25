@@ -21,10 +21,9 @@ function ProductList(): JSX.Element {
         try {
             const products = await productApi.getAllProduct(amount)
             setProductList(products.data)
-            console.log(products.data, "prodddd")
 
         } catch (error) {
-            console.log(error, "prodddd")
+            console.log(error, "Err")
         }
     }
 
